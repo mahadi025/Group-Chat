@@ -1,13 +1,11 @@
 from django.shortcuts import render, redirect
-from .models import Room, Topic, Message
-from .forms import RoomForm, UserForm
+from .models import User, Room, Topic, Message
+from .forms import RoomForm, UserForm, CustomUserCreationForm
 from django.db.models import Q
-from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
-from django.contrib.auth.forms import UserCreationForm
 
 
 def login_page(request):
@@ -37,9 +35,9 @@ def logout_user(request):
 
 
 def register_page(request):
-    form = UserCreationForm()
+    form = CustomUserCreationForm()
     if request.method == "POST":
-        form = UserCreationForm(request.POST)
+        form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
             user.username = user.username.lower()
@@ -49,6 +47,18 @@ def register_page(request):
         else:
             messages.error(request, "An error occurred during registration")
     return render(request, "core/login_register.html", {"form": form})
+
+
+@login_required(login_url="login")
+def update_user(request):
+    user = request.user
+    form = UserForm(instance=user)
+    if request.method == "POST":
+        form = UserForm(request.POST, request.FILES, instance=user)
+        if form.is_valid():
+            form.save()
+            return redirect("user-profile", pk=user.id)
+    return render(request, "core/update_user.html", {"form": form})
 
 
 def home(request):
@@ -99,18 +109,6 @@ def user_profile(request, pk):
         "topics": topics,
     }
     return render(request, "core/profile.html", context)
-
-
-@login_required(login_url="login")
-def update_user(request):
-    user = request.user
-    form = UserForm(instance=user)
-    if request.method == "POST":
-        form = UserForm(request.POST, instance=user)
-        if form.is_valid():
-            form.save()
-            return redirect("user-profile", pk=user.id)
-    return render(request, "core/update_user.html", {"form": form})
 
 
 @login_required(login_url="login")
