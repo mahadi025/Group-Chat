@@ -74,7 +74,12 @@ DATABASES = {
         "PASSWORD": os.getenv("DATABASE_PASS"),
         "HOST": os.getenv("DATABASE_HOST"),
         "PORT": os.getenv("DATABASE_PORT"),
-    }
+    },
+    # Uncomment the following line if you want to use sqlite and comment the above default database
+    # "default": {
+    #     "ENGINE": "django.db.backends.sqlite3",
+    #     "NAME": BASE_DIR / "db.sqlite3",
+    # },
 }
 
 # Password validation

@@ -53,6 +53,7 @@ SECRET_KEY={secret_key}
 
 - The secret key can be anything you want. But make sure it is at least 32 characters.
 - You can create a key by using "openssl rand -hex 32"
+- If you want to use sqllite not postgesql then comment the first "default" database and uncomment the next "default". It will create a new sqllite database on your project directory.
 
 ### 6. Run migrations
 
