@@ -13,7 +13,7 @@ load_dotenv()
 SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*", ".vercel.app"]
 
@@ -124,6 +124,12 @@ MEDIA_URL = "/images/"
 STATICFILES_DIRS = [BASE_DIR / "static"]
 
 MEDIA_ROOT = BASE_DIR / "static/images"
+
+
+if DEBUG:
+    STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+else:
+    STATIC_ROOT = BASE_DIR / "staticfiles"
 
 
 # Default primary key field type
