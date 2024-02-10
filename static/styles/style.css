@@ -1,24 +1,27 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
 
 :root {
-  --color-main: #71c6dd;
-  --color-main-light: #e1f6fb;
-  --color-dark: #3f4156;
-  --color-dark-medium: #51546e;
-  --color-dark-light: #696d97;
-  --color-light: #e5e5e5;
-  --color-gray: #8b8b8b;
-  --color-light-gray: #b2bdbd;
-  --color-bg: #2d2d39;
+  --bg-color: #1f242d;
+  --second-bg-color: #323946;
+  --text-color: #fff;
+  --main-color: #0ef;
   --color-success: #5dd693;
   --color-error: #fc4b0b;
+}
+
+.light-mode {
+  --bg-color: #fff;
+  --second-bg-color: #fffdd0;
+  --text-color: #1f242d;
+  --main-color: rgb(208, 79, 96);
+  --color-success: #2a6cce;
 }
 
 /*========== base styles ==========*/
 
 * {
-  font-family: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
-    "Helvetica Neue", sans-serif;
+  font-family: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -47,8 +50,8 @@ body {
   line-height: 1.6;
   font-weight: 400;
   font-size: 1.5rem;
-  color: var(--color-light-gray);
-  background-color: var(--color-bg);
+  color: var(--text-color);
+  background-color: var(--bg-color);
   min-height: 100vh;
 }
 
@@ -58,7 +61,7 @@ img {
 
 a {
   display: inline-block;
-  color: var(--color-main);
+  color: var(--text-color);
   text-decoration: none;
 }
 
@@ -86,7 +89,7 @@ a {
 .btn--link {
   border-radius: 0;
   padding: 0;
-  color: var(--color-main);
+  color: var(--text-color);
   box-shadow: none;
 }
 
@@ -95,8 +98,8 @@ a {
 }
 
 .btn--main {
-  background-color: var(--color-main);
-  color: var(--color-dark);
+  background-color: var(--main-color);
+  color: var(--text-color);
 }
 
 .btn:hover {
@@ -104,8 +107,8 @@ a {
 }
 
 .btn--dark {
-  background-color: var(--color-dark-light);
-  color: var(--color-light);
+  background-color: var(--main-color);
+  color: var(--text-color);
 }
 
 .btn > svg {
@@ -119,9 +122,9 @@ a {
   font-size: 1.4rem;
   font-weight: 700;
   padding: 6px 2.5rem;
-  color: var(--color-main);
+  color: var(--main-color);
   background: transparent;
-  border: 2px solid var(--color-main);
+  border: 2px solid var(--main-color);
 }
 
 .action-button {
@@ -135,7 +138,7 @@ a {
   position: relative;
   display: inline-block;
   border-radius: 50%;
-  border: 2px solid var(--color-main);
+  border: 2px solid var(--main-color);
 }
 
 .avatar img {
@@ -149,10 +152,10 @@ a {
   content: "";
   display: block;
   position: absolute;
-  background-color: var(--color-gray);
+  background-color: var(--text-color);
   z-index: 111;
   border-radius: 50%;
-  border: 0.3rem solid var(--color-dark);
+  border: 0.3rem solid var(--main-color);
 }
 
 .avatar.active::after {
@@ -200,12 +203,12 @@ a {
 
 .scroll::-webkit-scrollbar {
   width: 0.6rem;
-  background-color: rgb(41, 41, 46);
+  background-color: var(--main-color);
 }
 
 .scroll::-webkit-scrollbar-thumb {
   border-radius: 1rem;
-  background-color: var(--color-gray);
+  background-color: var(--text-color);
 }
 
 .dropdown-menu {
@@ -213,7 +216,7 @@ a {
   position: absolute;
   top: 5rem;
   right: 0.5rem;
-  background: var(--color-dark-light);
+  background: var(--main-color);
   border-radius: 5px;
   box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.15);
   overflow: hidden;
@@ -227,21 +230,21 @@ a {
 .dropdown-menu a {
   padding: 1.2rem 4rem;
   display: block;
-  color: var(--color-light) !important;
+  color: var(--text-color) !important;
   font-weight: 500;
   font-size: 1.4rem;
 }
 
 .dropdown-menu a:hover {
-  background-color: var(--color-dark-medium);
+  background-color: var(--second-bg-color);
 }
 
 .dropdown-menu > a:not(:last-child) {
-  border-bottom: 1px solid var(--color-dark-medium);
+  border-bottom: 1px solid var(--second-bg-color);
 }
 
 .dropdown-menu a svg {
-  fill: var(--color-light);
+  fill: var(--text-color);
 }
 
 .mobile-menu {
@@ -267,7 +270,7 @@ a {
 
 .header {
   padding: 1.5rem;
-  background-color: var(--color-dark);
+  background-color: var(--main-color);
 }
 
 .header > .container {
@@ -290,11 +293,11 @@ a {
 .header__logo > h1 {
   font-weight: 700;
   font-size: 2rem;
-  color: var(--color-light);
+  color: var(--text-color);
 }
 
 .header__search > label {
-  background-color: var(--color-dark-medium);
+  background-color: var(--second-bg-color);
   padding: 1.3rem 1rem;
   display: flex;
   align-items: center;
@@ -303,7 +306,7 @@ a {
 }
 
 .header__search svg {
-  fill: var(--color-gray);
+  fill: var(--text-color);
   width: 2rem;
   height: 2rem;
   margin-left: 1rem;
@@ -314,7 +317,7 @@ a {
   background: transparent;
   border: none;
   outline: none;
-  color: var(--color-light);
+  color: var(--text-color);
 }
 
 @media screen and (max-width: 800px) {
@@ -350,7 +353,7 @@ a {
   align-items: center;
   font-weight: 500;
   text-decoration: none;
-  color: var(--color-gray);
+  color: var(--text-color);
 }
 
 .header__menu img {
@@ -362,7 +365,7 @@ a {
 }
 
 .header__menu span {
-  color: var(--color-main);
+  color: var(--text-color);
   font-weight: 500;
   font-size: 1.4rem;
   display: block;
@@ -371,7 +374,7 @@ a {
 .header__menu svg {
   width: 1.6rem;
   height: 1.6rem;
-  fill: var(--color-dark-light);
+  fill: var(--second-bg-color);
 }
 
 .dropdown-button {
@@ -382,7 +385,7 @@ a {
 }
 
 .dropdown-button:hover svg {
-  fill: var(--color-main);
+  fill: var(--main-color);
 }
 
 /*==============================
@@ -429,7 +432,7 @@ a {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -46%);
-  background-color: var(--color-dark);
+  background-color: var(--second-bg-color);
   border-radius: 1rem;
   box-shadow: 1px 1px 6px 3px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -438,7 +441,7 @@ a {
 .layout__boxHeader {
   display: flex;
   padding: 1.5rem;
-  background-color: var(--color-dark-light);
+  background-color: var(--main-color);
 }
 
 .layout__boxTitle {
@@ -450,13 +453,13 @@ a {
 .layout__boxTitle h3 {
   text-transform: uppercase;
   font-weight: 500;
-  color: var(--color-light);
+  color: var(--text-color);
 }
 
 .layout__boxTitle svg {
   width: 1.6rem;
   height: 1.6rem;
-  fill: var(--color-main);
+  fill: var(--main-color);
 }
 
 .layout__body {
@@ -498,18 +501,18 @@ a {
 .form__group textarea,
 .form__group select {
   background: transparent;
-  border: 1px solid var(--color-dark-light);
+  border: 1px solid var(--main-color);
   padding: 1rem;
   border-radius: 3px;
   width: 100%;
-  color: var(--color-light);
+  color: var(--text-color);
   font-weight: 500;
   outline: none;
 }
 
 .form__group input:focus,
 .form__group textarea:focus {
-  border-color: var(--color-main);
+  border-color: var(--main-color);
 }
 
 .form__group textarea {
@@ -519,13 +522,13 @@ a {
 }
 
 .form__group select {
-  color: var(--color-gray);
+  color: var(--text-color);
   font-weight: 400;
 }
 
 .form__group select option {
-  background-color: var(--color-dark-light);
-  color: var(--color-light);
+  background-color: var(--main-color);
+  color: var(--text-color);
   padding: 0 10rem;
 }
 
@@ -544,7 +547,7 @@ a {
   text-align: center;
   font-size: 1.8rem;
   font-weight: 500;
-  color: var(--color-main);
+  color: var(--main-color);
   cursor: pointer;
 }
 
@@ -563,7 +566,7 @@ a {
 .topics__header h2 {
   text-transform: uppercase;
   font-weight: 500;
-  color: var(--color-dark-light);
+  color: var(--main-color);
 }
 
 .topics__list {
@@ -575,18 +578,18 @@ a {
   justify-content: space-between;
   margin-bottom: 3rem;
   font-weight: 500;
-  color: var(--color-light-gray);
+  color: var(--text-color);
   transition: all 0.3s ease-in-out;
 }
 
 .topics__list li a.active,
 .topics__list li a:hover {
-  color: var(--color-main);
+  color: var(--text-color);
 }
 
 .topics__list li a span {
   padding: 0.5rem 1rem;
-  background-color: var(--color-dark);
+  background-color: var(--main-color);
   border-radius: 3px;
   font-size: 1.3rem;
   font-weight: 700;
@@ -601,7 +604,7 @@ a {
   margin: 2rem 0;
   padding-bottom: 1rem;
   text-decoration: none;
-  border-bottom: 1px solid var(--color-dark-medium);
+  border-bottom: 1px solid var(--second-bg-color);
 }
 
 .topics-page .header__search {
@@ -629,20 +632,20 @@ a {
 .roomList__header h2 {
   text-transform: uppercase;
   font-weight: 500;
-  color: var(--color-light);
+  color: var(--text-color);
   letter-spacing: 1px;
 }
 
 .roomList__header p {
   font-weight: 500;
-  color: var(--color-dark-light);
+  color: var(--main-color);
 }
 
 /*========== Room List Room ==========*/
 
 .roomListRoom {
   margin-bottom: 2.4rem;
-  background-color: var(--color-dark);
+  background-color: var(--second-bg-color);
   border-radius: 1rem;
   padding: 2rem;
 }
@@ -673,7 +676,7 @@ a {
 }
 
 .roomListRoom__actions svg {
-  fill: var(--color-main);
+  fill: var(--main-color);
 
   width: 1.6rem;
   height: 1.6rem;
@@ -687,16 +690,16 @@ a {
   font-size: 2rem;
   font-weight: 500;
   margin-bottom: 1.5rem;
-  color: var(--color-light);
+  color: var(--text-color);
   transition: all 0.3s ease-in-out;
 }
 
 .roomListRoom__content a:hover {
-  color: var(--color-main);
+  color: var(--main-color);
 }
 
 .roomListRoom__meta {
-  border-top: 1px solid var(--color-dark-medium);
+  border-top: 1px solid var(--second-bg-color);
   padding-top: 1rem;
   display: flex;
   align-items: center;
@@ -704,7 +707,7 @@ a {
 }
 
 .roomListRoom__joined {
-  color: var(--color-light-gray);
+  color: var(--text-color);
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -713,14 +716,14 @@ a {
 }
 
 .roomListRoom__joined svg {
-  fill: var(--color-main);
+  fill: var(--main-color);
   width: 1.6rem;
   height: 1.6rem;
 }
 
 .roomListRoom__topic {
   padding: 5px 1.5rem;
-  background-color: var(--color-dark-medium);
+  background-color: var(--second-bg-color);
   border-radius: 5rem;
   font-weight: 500;
   font-size: 1.3rem;
@@ -731,17 +734,17 @@ a {
 ================================*/
 
 .activities {
-  background: var(--color-dark);
+  background: var(--main-color);
   border-radius: 5px;
   overflow: hidden;
 }
 
 .activities__header h2 {
-  background-color: var(--color-dark-light);
+  background-color: var(--main-color);
   text-transform: uppercase;
   font-weight: 500;
   padding: 1rem 1.5rem;
-  color: var(--color-light);
+  color: var(--text-color);
   letter-spacing: 1px;
   font-size: 1.4rem;
 }
@@ -749,7 +752,7 @@ a {
 .activities__box {
   margin: 1.5rem;
   padding: 1.5rem;
-  border: 2px solid var(--color-dark-medium);
+  border: 2px solid var(--second-bg-color);
   border-radius: 5px;
 }
 
@@ -759,7 +762,7 @@ a {
 }
 
 .activities__boxHeader p span {
-  color: var(--color-gray);
+  color: var(--text-color);
   font-size: 1.2rem;
   display: block;
 }
@@ -777,7 +780,7 @@ a {
 }
 
 .activities__boxRoomContent {
-  background: var(--color-bg);
+  background: var(--bg-color);
   padding: 1rem;
   border-radius: 5px;
   margin-top: 1rem;
@@ -785,7 +788,7 @@ a {
 }
 
 .roomListRoom__actions svg {
-  fill: var(--color-light-gray);
+  fill: var(--text-color);
 }
 
 /*==============================
@@ -819,7 +822,7 @@ a {
 .auth__tagline {
   text-align: center;
   margin-bottom: 3rem;
-  color: var(--color-main);
+  color: var(--main-color);
   font-weight: 500;
   font-size: 1.8rem;
 }
@@ -866,12 +869,12 @@ a {
 
 .profile__info h3 {
   font-size: 2rem;
-  color: var(--color-light);
+  color: var(--text-color);
   font-weight: 400;
 }
 
 .profile__info p {
-  color: var(--color-main);
+  color: var(--main-color);
   font-weight: 500;
   margin-bottom: 1rem;
 }
@@ -882,7 +885,7 @@ a {
 
 .profile__about h3 {
   text-transform: uppercase;
-  color: var(--color-dark-light);
+  color: var(--main-color);
   margin-bottom: 0.5rem;
 }
 
@@ -891,7 +894,7 @@ a {
 }
 
 .profile-page .roomList__header h2 {
-  color: var(--color-dark-light);
+  color: var(--main-color);
 }
 
 /*==============================
@@ -900,7 +903,7 @@ a {
 
 .room,
 .participants {
-  background: var(--color-dark);
+  background: var(--second-bg-color);
   max-height: 87.5vh;
   border-radius: 0.7rem;
   overflow: hidden;
@@ -919,7 +922,7 @@ a {
 
 .room__top,
 .participants__top {
-  background: var(--color-dark-light);
+  background: var(--main-color);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -931,7 +934,7 @@ a {
 .thread__top svg {
   width: 1.6rem;
   height: 1.6rem;
-  fill: var(--color-light);
+  fill: var(--text-color);
   cursor: pointer;
 }
 
@@ -945,13 +948,13 @@ a {
 .participants__top {
   text-transform: uppercase;
   font-weight: 500;
-  color: var(--color-light);
+  color: var(--text-color);
 }
 
 .room__topLeft svg {
   width: 1.6rem;
   height: 1.6rem;
-  fill: var(--color-light);
+  fill: var(--text-color);
 }
 
 .room__topRight {
@@ -960,7 +963,7 @@ a {
 }
 
 .room__topRight svg {
-  fill: var(--color-main-light);
+  fill: var(--bg-color);
 }
 
 .room__header {
@@ -968,7 +971,7 @@ a {
   overflow-y: auto;
   position: absolute;
   width: 95%;
-  background: var(--color-dark);
+  background: var(--second-bg-color);
   z-index: 999;
   top: 4.4rem;
   padding-top: 2rem;
@@ -1008,12 +1011,12 @@ a {
 .room__info h3 {
   font-size: 2.4rem;
   font-weight: 500;
-  color: var(--color-main);
+  color: var(--text-color);
 }
 
 .room__hosted p {
   text-transform: uppercase;
-  color: var(--color-gray);
+  color: var(--text-color);
   font-size: 1.2rem;
   font-weight: 700;
   line-height: 2;
@@ -1033,8 +1036,8 @@ a {
 
 .room__topics {
   padding: 0.5rem 1.5rem;
-  background: var(--color-dark-light);
-  color: var(--color-light);
+  background: var(--main-color);
+  color: var(--text-color);
   display: inline-block;
   font-size: 1.4rem;
   border-radius: 1.5rem;
@@ -1050,11 +1053,11 @@ a {
 .threads h3 {
   text-transform: uppercase;
   font-weight: 500;
-  color: var(--color-gray);
+  color: var(--text-color);
 }
 
 .threads {
-  background: var(--color-bg);
+  background: var(--second-bg-color);
   border-radius: 0.7rem;
   overflow-y: auto;
   height: 100%;
@@ -1063,7 +1066,7 @@ a {
 }
 
 .thread {
-  border-left: 2px solid var(--color-dark);
+  border-left: 2px solid var(--main-color);
   padding-left: 1rem;
   margin: 2rem 0;
   padding: 2rem;
@@ -1076,7 +1079,7 @@ a {
 }
 
 .thread__top svg {
-  fill: var(--color-dark-light);
+  fill: var(--main-color);
 }
 
 .thread__author {
@@ -1109,8 +1112,8 @@ a {
 
 .room__message > form > input {
   resize: none;
-  background-color: var(--color-dark-light);
-  color: var(--color-light);
+  background-color: var(--main-color);
+  color: var(--text-color);
   border: none;
   outline: none;
   border-radius: 0.7rem;
@@ -1124,11 +1127,11 @@ a {
 }
 
 .room__message > form > input::placeholder {
-  color: var(--color-light-gray);
+  color: var(--text-color);
 }
 
 .participants__top span {
-  color: var(--color-main);
+  color: var(--main-color);
   font-size: 1.3rem;
   text-transform: none;
 }
@@ -1153,13 +1156,13 @@ a {
 }
 
 .participant p {
-  color: var(--color-light-gray);
+  color: var(--text-color);
   line-height: 1.2;
 }
 
 .participant span {
   display: block;
   font-weight: 500;
-  color: var(--color-main);
+  color: var(--main-color);
   font-weight: 1.4rem;
 }

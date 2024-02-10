@@ -16,6 +16,7 @@
         <input name="q" placeholder="Search for rooms..." />
       </label>
     </form>
+    <button class="btn" id="theme-btn">Toggle Theme</i></button>
     <nav class="header__menu">
       {% if request.user.is_authenticated %}
         <div class="header__user">
@@ -62,3 +63,11 @@
     </nav>
   </div>
 </header>
+
+
+<script>
+  document.getElementById("theme-btn").addEventListener("click", () => {
+  document.body.classList.toggle("light-mode");
+  console.log("Button pressed");
+});
+</script>
