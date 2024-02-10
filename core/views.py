@@ -17,13 +17,10 @@ def login_page(request):
         password = request.POST.get("password")
         try:
             user = User.objects.get(username=username)
-        except:
-            messages.error(request, "User does not exist")
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
+            user = authenticate(request, username=username, password=password)
             login(request, user)
             return redirect("home")
-        else:
+        except:
             messages.error(request, "Username or password does not match")
     context = {"page": page}
     return render(request, "core/login_register.html", context)
@@ -45,7 +42,7 @@ def register_page(request):
             login(request, user)
             return redirect("home")
         else:
-            messages.error(request, "An error occurred during registration")
+            return render(request, "core/login_register.html", {"form": form})
     return render(request, "core/login_register.html", {"form": form})
 
 

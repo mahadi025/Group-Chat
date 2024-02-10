@@ -11,16 +11,16 @@
           </div>
         </div>
         <div class="layout__body">
-          <h2 class="auth__tagline">Find your study partner</h2>
+          <h2 class="auth__tagline">Find your group partner</h2>
           <form class="form" method="POST" action="">
             {% csrf_token %}
             <div class="form__group form__group">
               <label for="room_name">Username</label>
-              <input id="username" name="username" type="text" placeholder="e.g. dennis_ivy" />
+              <input id="username" name="username" type="text" placeholder="username" />
             </div>
             <div class="form__group">
               <label for="password">Password</label>
-              <input id="password" name="password" type="password" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;"/>
+              <input id="password" name="password" type="password" placeholder="password"/>
             </div>
             <button class="btn btn--main" type="submit">
               <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
@@ -31,6 +31,13 @@
               Submit
             </button>
           </form>
+          {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+          {% endif %}
           <div class="auth__action">
             <p>Haven't signed up yet?</p>
             <a href="{% url 'register' %}" class="btn btn--link">Sign Up</a>
@@ -54,6 +61,13 @@
                 <div class="form__group form__group">
                   <label>{{field.label}}</label>
                   {{field}}
+                  {% if field.errors %}
+                    <div class="error" style="color: red;">
+                        {% for error in field.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                  {% endif %}
                 </div>
               {% endfor %}
               <button class="btn btn--main" type="submit">
