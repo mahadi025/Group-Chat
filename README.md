@@ -114,7 +114,7 @@ services:
       - DB_PASSWORD=mypassword
       - DB_HOST=db
       - DB_PORT=5432
-      - SECRET_KEY=12afa4e41be911d248958ca0c757a9a8f5931409eee0e68cbcabe86699dd4f8f
+      - SECRET_KEY=very-secret-key
 
   db:
     image: postgres:13-alpine
